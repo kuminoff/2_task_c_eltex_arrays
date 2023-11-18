@@ -22,19 +22,30 @@ int square_matrix()
 
 int reverse_array()
 {
+    int tmp = 0;
+
     int array[number_N];
 
-    printf("initial array: ");
+    printf("\ninitial array: ");
+
     for (i = 0; i < number_N; i++)
     {
         array[i] = i + 1;
-        printf("%d ", array[i]);
+        printf("%d  ", array[i]);
+    }
+
+    for (i = 0; i < number_N / 2; i++)
+    {
+        tmp = array[i];
+        array[i] = array[number_N - i - 1];
+        array[number_N - i - 1] = tmp;
     }
 
     printf("\nreversed array: ");
-    for (int i = number_N - 1; i >= 0; i--)
+
+    for (i = 0; i < number_N; i++)
     {
-        printf("%d ", array[i]);
+        printf("%d  ", array[i]);
     }
 
     return 0;
@@ -100,7 +111,7 @@ int snail_matrix()
         col1++;
         col2--;
     }
-    
+
     printf("Matrix snail:\n");
 
     for (int i = 0; i < number_N; i++)
